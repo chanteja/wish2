@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wedding Anniversary Wish</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffdede, #ffe6e6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .heart-container {
+      text-align: center;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+    }
+
+    .heart {
+      font-size: 100px;
+      color: red;
+      transition: transform 0.3s;
+    }
+
+    .heart:hover {
+      transform: scale(1.2);
+    }
+
+    .card {
+      display: none;
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 550px;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .card h1 {
+      font-size: 2.5em;
+      color: #c0392b;
+      margin-bottom: 0.5em;
+    }
+
+    .names {
+      font-size: 2em;
+      font-weight: bold;
+      color: #8e44ad;
+      margin: 10px 0;
+    }
+
+    .message {
+      font-size: 1.2em;
+      margin-top: 20px;
+      color: #555;
+    }
+
+    .date {
+      margin-top: 15px;
+      color: #777;
+      font-style: italic;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Heart Icon Page -->
+  <div id="heartPage" class="heart-container">
+    <div class="heart">❤️</div>
+    <p>Click the heart to see the anniversary wish</p>
+  </div>
+
+  <!-- Main Wish Page -->
+  <div id="wishPage" class="card">
+    <h1>💐 Happy Wedding Anniversary 💐</h1>
+    <div class="names">Tara & Sudhakar</div>
+    <div class="message">
+      Wishing you both endless love and happiness.<br>
+      May your bond grow stronger with each passing year!
+    </div>
+    <div class="date">Married since 2006 ❤️</div>
+  </div>
+
+  <!-- Hidden audio element -->
+  <audio id="anniversaryAudio" src="anniversary.mp3"></audio>
+
+  <script>
+    const heartPage = document.getElementById('heartPage');
+    const wishPage = document.getElementById('wishPage');
+    const audio = document.getElementById('anniversaryAudio');
+
+    heartPage.addEventListener('click', () => {
+      heartPage.style.display = 'none';
+      wishPage.style.display = 'block';
+      audio.play();
+    });
+  </script>
+</body>
+</html>
